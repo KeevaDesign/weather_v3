@@ -21,7 +21,7 @@ const handler = async (event) => {
   const { lat, lon } = event.queryStringParameters;
 
   const API_SECRET = "07d67f84cd34e2452408a52a5a0c1414";
-  const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_SECRET}`;
+  const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_SECRET}&units=metric`;
 
   try {
     const { data } = await axios.get(url);
@@ -40,3 +40,15 @@ const handler = async (event) => {
 };
 
 module.exports = { handler };
+
+$(document).ready(function () {
+  const endpoint = `https://weatherv3.netlify.app/.netlify/functions/fetch-weather?lat=${lat}&lon=${lon}`; // Replace with your actual endpoint and query parameters
+
+  $.get(endpoint, function (data) {
+    const parsedData = JSON.parse(data); // Assuming the server responds with stringified JSON
+    $("#location").text(parsedData.name);
+    $("#temperature").text(parsedData.main.temp);
+  }).fail(function (error) {
+    console.log("Error: ", error);
+  });
+});
