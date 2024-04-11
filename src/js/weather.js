@@ -32,9 +32,9 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("icon").innerHTML =
               "<img src='" + iconurl + "'>";
             curPrecipitation.innerHTML = data.rain;
-            curHumidity.innerHTML = data.main.humidity;
-            curWind.innerHTML = data.wind.speed;
-            maxTemp.innerHTML = data.main.temp_max;
+            curHumidity.innerHTML = `${data.main.humidity}%`;
+            curWind.innerHTML = `${data.wind.speed} km/h`;
+            maxTemp.innerHTML = `${data.main.temp_max}°C`;
             minTemp.innerHTML = data.main.temp_min;
           })
           .catch((error) => console.error("Error:", error));
