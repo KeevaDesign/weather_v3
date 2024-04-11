@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("icon").innerHTML =
               "<img src='" + iconurl + "'>";
             curHumidity.innerHTML = `${data.main.humidity}%`;
-            curWind.innerHTML = `${data.wind.speed} meter/sec`;
+            curWind.innerHTML = `${data.wind.speed} m/sec`;
           })
           .catch((error) => console.error("Error:", error));
       },
