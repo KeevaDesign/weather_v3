@@ -4,13 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
     <title>fetch weather</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-    <script>
+    <!-- <script>
         navigator.geolocation.getCurrentPosition(position => {
             const { latitude: lat, longitude: lon } = position.coords
             fetch(`/.netlify/functions/fetch-weather?lat=${lat}&lon=${lon}`)
@@ -18,12 +17,43 @@
                 .then(data => console.log(data)); // Log the data
         })
 
-    </script>
+    </script> -->
+
+    <div class="container">
+        <!-- dark blue background -->
+        <div class="basic_wrapper">
+            <p class="basic_text" id="today-date"></p>
+            <p class="day-date" id="day-name"></p>
+            <div><span class="basic_text" id="city">Toronto</span>, <span class="basic_text" id="countryCode">CA</span>
+            </div>
+
+            <div class="temp">
+                <p id="icon"></p>
+                <h1 id="temp">14°C</h1>
+                <div><span>Max: </span><span id="max-temp">17°C</span> | <span>Min: </span><span
+                        id="min-temp">10°C</span>
+                </div>
+                <p class="condition" id="condition">Rain</p>
+            </div>
+        </div>
+
+        <!-- light blue background -->
+        <div class="details">
+            <div><span>Feels like:</span><span id="temp_feel">12°C</span></div>
+            <div><span>Humidity:</span><span id="humidity">98%</span></div>
+            <div><span>Wind:</span><span id="wind">12 km/h</span></div>
+
+        </div>
+
+        <div id="weatherInfo"></div>
+        <div id="weatherInfo_2"></div>
+    </div>
 
 
-    <h1>Weather Data</h1>
-    <p>Location: <span id="location"></span></p>
-    <p>Temperature: <span id="temperature"></span>°C</p>
+
+    <script src="js/currentCity.js"></script>
+    <script src="js/weather.js"></script>
+</body>
 </body>
 
 </html>
