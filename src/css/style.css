@@ -1,8 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
 
-:root {
-    --gradient: linear-gradient(135deg, #72EDF2 10%, #5151E5 100%);
-}
 
 * {
     -webkit-box-sizing: border-box;
@@ -44,7 +41,7 @@ h4 {
 .basic_text {
     font-size: 1.2em;
     margin: 0;
-    font-weight: 300;
+    font-weight: 400;
 }
 
 body {
