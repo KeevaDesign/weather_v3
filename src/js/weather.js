@@ -22,22 +22,33 @@ document.addEventListener("DOMContentLoaded", function () {
             var roundedTemperature = Math.ceil(curTemperature);
             curTemp.innerHTML = `${roundedTemperature}°C`;
 
-            const curTemp_feel = document.getElementById("temp_feel");
+            // Current Feels Like Temperature
+            var curTemp_feel = document.getElementById("temp_feel");
+            var curFeelTemp = data.main.feels_like;
+            var roundedFeelTemp = Math.ceil(curFeelTemp);
+            curTemp_feel.innerHTML = `${roundedFeelTemp}°C`;
+
+            // Max Temperature
+            var maxTemp = document.getElementById("max-temp");
+            var MaxTemperature = data.main.temp_max;
+            var roundedMaxTemperature = Math.ceil(MaxTemperature);
+            maxTemp.innerHTML = `${roundedMaxTemperature}°C`;
+
+            // Miin Temperature
+            var minTemp = document.getElementById("min-temp");
+            var MinTemperature = data.main.temp_min;
+            var roundedMinTemperature = Math.ceil(MinTemperature);
+            minTemp.innerHTML = `${roundedMinTemperature}°C`;
+
             const curCondition = document.getElementById("condition");
             const curHumidity = document.getElementById("humidity");
             const curWind = document.getElementById("wind");
-            const maxTemp = document.getElementById("max-temp");
-            const minTemp = document.getElementById("min-temp");
-            // Display location and temperature (customize as needed)
 
-            curTemp_feel.innerHTML = `${data.main.feels_like}°C`;
             curCondition.innerHTML = data.weather[0].main;
             document.getElementById("icon").innerHTML =
               "<img src='" + iconurl + "'>";
             curHumidity.innerHTML = `${data.main.humidity}%`;
             curWind.innerHTML = `${data.wind.speed} km/h`;
-            maxTemp.innerHTML = `${data.main.temp_max}°C`;
-            minTemp.innerHTML = `${data.main.temp_min}°C`;
           })
           .catch((error) => console.error("Error:", error));
       },
