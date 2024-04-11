@@ -16,7 +16,12 @@ document.addEventListener("DOMContentLoaded", function () {
             var iconurl =
               "https://openweathermap.org/img/wn/" + iconcode + "@2x.png";
 
-            const curTemp = document.getElementById("temp");
+            // Current Temperature
+            var curTemp = document.getElementById("temp");
+            var curTemperature = data.main.temp;
+            var roundedTemperature = Math.ceil(curTemperature);
+            curTemp.innerHTML = `${roundedTemperature}°C`;
+
             const curTemp_feel = document.getElementById("temp_feel");
             const curCondition = document.getElementById("condition");
             const curHumidity = document.getElementById("humidity");
@@ -25,8 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const minTemp = document.getElementById("min-temp");
             // Display location and temperature (customize as needed)
 
-            curTemp.innerHTML = data.main.temp;
-            curTemp_feel.innerHTML = data.main.feels_like;
+            curTemp_feel.innerHTML = `${data.main.feels_like}°C`;
             curCondition.innerHTML = data.weather[0].main;
             document.getElementById("icon").innerHTML =
               "<img src='" + iconurl + "'>";
