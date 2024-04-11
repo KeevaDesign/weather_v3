@@ -19,7 +19,6 @@ document.addEventListener("DOMContentLoaded", function () {
             const curTemp = document.getElementById("temp");
             const curTemp_feel = document.getElementById("temp_feel");
             const curCondition = document.getElementById("condition");
-            const curPrecipitation = document.getElementById("preciptiation");
             const curHumidity = document.getElementById("humidity");
             const curWind = document.getElementById("wind");
             const maxTemp = document.getElementById("max-temp");
@@ -31,11 +30,10 @@ document.addEventListener("DOMContentLoaded", function () {
             curCondition.innerHTML = data.weather[0].main;
             document.getElementById("icon").innerHTML =
               "<img src='" + iconurl + "'>";
-            curPrecipitation.innerHTML = data.rain;
             curHumidity.innerHTML = `${data.main.humidity}%`;
             curWind.innerHTML = `${data.wind.speed} km/h`;
             maxTemp.innerHTML = `${data.main.temp_max}°C`;
-            minTemp.innerHTML = data.main.temp_min;
+            minTemp.innerHTML = `${data.main.temp_min}°C`;
           })
           .catch((error) => console.error("Error:", error));
       },
