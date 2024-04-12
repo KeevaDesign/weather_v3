@@ -98,7 +98,7 @@ body {
 }
 
 .details div span {
-    text-transform: uppercase;
+    text-transform: capitalize;
     font-size: 1.1em;
     font-weight: 600;
     color: #ffffff;
